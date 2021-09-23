@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <h1>POST DATA</h1>
+    <div>
+        <p>Password for super magical admin acccess</p>
+        <input id="password" placeholder="Password" type="password" />
+    </div>
+    <hr>
+    <div>
+        <h2>DEGENS</h2>
+        <p>Add degen</p>
+        <input id="degen-handle" placeholder="Twitter handle" />
+        <input id="degen-img" placeholder="Optional url to img" />
+        <button id="add-degen-button">Add degen</button>
+    </div>
+    <div>
+        <p>Remove degen</p>
+        <input id="degen-remove-id" placeholder="Id of degen" />
+        <button id="remove-degen-button">Remove degen</button>
+    </div>
+    <div>
+        <p>Update degen</p>
+        <input id="degen-update-id" placeholder="Id of degen" />
+        <input id="degen-update-handle" placeholder="Twitter handle" />
+        <input id="degen-update-img" placeholder="Optional url to img" />
+        <button id="update-degen-button">Update degen</button>
+    </div>
+    <hr>
+    <div>
+        <h2>HOSTS</h2>
+        <p>Add host</p>
+        <input id="host-handle" placeholder="Twitter handle" />
+        <input id="degen-img" placeholder="Optional url to img" />
+        <button id="add-host-button">Add host</button>
+    </div>
+    <div>
+        <p>Remove host</p>
+        <input id="host-remove-id" placeholder="Id of host" />
+        <button id="remove-host-button">Remove host</button>
+    </div>
+    <div>
+        <p>Update host</p>
+        <input id="host-update-id" placeholder="Id of host" />
+        <input id="host-update-handle" placeholder="Twitter handle" />
+        <input id="host-update-img" placeholder="Optional url to img" />
+        <button id="update-host-button">Update host</button>
+    </div>
+    <hr>
+    <div>
+        <h2>SHOWS</h2>
+        <p>Add show</p>
+        <input id="show-name" placeholder="Show name" />
+        <textarea id="show-description" placeholder="Show description"></textarea>
+        <button id="add-show-button">Add show</button>
+    </div>
+    <div>
+        <p>Remove show</p>
+        <input id="show-remove-id" placeholder="Id of show" />
+        <button id="remove-show-button">Remove show</button>
+    </div>
+    <div>
+        <p>Update show</p>
+        <input id="show-update-id" placeholder="Id of show" />
+        <input id="show-update-name" placeholder="Show name" />
+        <textarea id="show-update-description" placeholder="Show description"></textarea>
+        <button id="update-show-button">Update show</button>
+    </div>
+    <hr>
+    <h2>EPISODE</h2>
+    <p>Add episode</p>
+    <input id="episode-idhost" placeholder="Host id" />
+    <input id="episode-idshow" placeholder="Show id" />
+    <input id="episode-name" placeholder="Episode name" />
+    <input id="episode-start" placeholder="Start YYYY-MM-DD HH:MM" />
+    <input id="episode-end" placeholder="End YYYY-MM-DD HH:MM" />
+    <textarea id="episode-description" placeholder="Episode description"></textarea>
+    <button id="add-episode-button">Add episode</button>
+    </div>
+    <div>
+        <p>Remove episode</p>
+        <input id="episode-remove-id" placeholder="Id of episode" />
+        <button id="remove-show-button">Remove episode</button>
+    </div>
+    <div>
+        <p>Update episode</p>
+        <input id="episode-update-idhost" placeholder="Host id" />
+        <input id="episode-update-idshow" placeholder="Show id" />
+        <input id="episode-update-name" placeholder="Episode name" />
+        <input id="episode-update-start" placeholder="Start YYYY-MM-DD HH:MM" />
+        <input id="episode-update-end" placeholder="End YYYY-MM-DD HH:MM" />
+        <textarea id="episode-update-description" placeholder="Episode description"></textarea>
+        <button id="update-episode-button">Update episode</button>
+    </div>
+    <script src="../scripts/jquery.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

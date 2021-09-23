@@ -2,6 +2,8 @@ let showInfoDate = new Date();
 let shows = [];
 let degens = [];
 let isLive = false;
+let baseUrl = "http://localhost:3000/";
+let twitterPicBaseUrl = "https://unavatar.vercel.app/twitter/";
 
 function scrollFunction() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
