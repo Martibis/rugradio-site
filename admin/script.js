@@ -1,4 +1,4 @@
-let baseUrl = "http://localhost:3000/";
+let baseUrl = "https://rugradio.tiboutshaik.com/";
 
 function jsonViewer(json, collapsible = false) {
   var TEMPLATES = {
@@ -105,7 +105,13 @@ $("#add-degen-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 $("#remove-degen-button").on("click", function () {
@@ -118,7 +124,13 @@ $("#remove-degen-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 $("#update-degen-button").on("click", function () {
@@ -133,7 +145,13 @@ $("#update-degen-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 //HOST GET
@@ -161,7 +179,13 @@ $("#add-host-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 $("#remove-host-button").on("click", function () {
@@ -174,7 +198,13 @@ $("#remove-host-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 $("#update-host-button").on("click", function () {
@@ -189,7 +219,13 @@ $("#update-host-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 //SHOW GET
@@ -217,7 +253,13 @@ $("#add-show-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 $("#remove-show-button").on("click", function () {
@@ -230,7 +272,13 @@ $("#remove-show-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 $("#update-show-button").on("click", function () {
@@ -245,7 +293,13 @@ $("#update-show-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 //EPISODE GET
@@ -287,7 +341,13 @@ $("#add-episode-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 $("#remove-episode-button").on("click", function () {
@@ -300,7 +360,13 @@ $("#remove-episode-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });
 
 $("#update-episode-button").on("click", function () {
@@ -318,5 +384,11 @@ $("#update-episode-button").on("click", function () {
     function (data) {
       console.log(data);
     }
-  );
+  )
+    .done(function () {
+      alert("Succes");
+    })
+    .fail(function () {
+      alert("Failed");
+    });
 });

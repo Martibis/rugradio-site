@@ -2,7 +2,7 @@ let showInfoDate = new Date();
 let shows = [];
 let degens = [];
 let isLive = false;
-let baseUrl = "http://localhost:3000/";
+let baseUrl = "https://rugradio.tiboutshaik.com/";
 let twitterPicBaseUrl = "https://unavatar.vercel.app/twitter/";
 
 function scrollFunction() {
@@ -96,40 +96,77 @@ const setShowsForDay = (data, first) => {
   for (let i = 0; i < shows.length; i++) {
     let start = new Date(Date.parse(shows[i].start));
     let end = new Date(Date.parse(shows[i].end));
-    if (i == 0 && first) {
+    if (first) {
+      let now = new Date(Date.now());
+      let utcDate = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+      console.log(utcDate);
+      console.log(start);
+      console.log(end);
+      if (!isLive) {
+        if (utcDate > start && utcDate < end) {
+          setIsLive(true);
+          $(".quick-show-info").removeClass("active");
+          $("#shows-during-day").append(
+            '<div class="quick-show-info active' +
+              (i == 0 ? " active" : "") +
+              '" data-show=' +
+              i +
+              '><img src="' +
+              (shows[i].image != "" && shows[i].image != null
+                ? shows[i].image
+                : twitterPicBaseUrl + shows[i].handle) +
+              '" alt="pfp" loading="lazy"/><div class="show-info"><p class="show-name">' +
+              shows[i].showname +
+              '</p><p class="show-date-time">' +
+              ("0" + start.getHours()).slice(-2) +
+              ":" +
+              ("0" + start.getMinutes()).slice(-2) +
+              " - " +
+              ("0" + end.getHours()).slice(-2) +
+              ":" +
+              ("0" + end.getMinutes()).slice(-2) +
+              "</p> </div></div>"
+          );
+        } else {
+          setIsLive(false);
+
+          $("#shows-during-day").append(
+            '<div class="quick-show-info ' +
+              (i == 0 ? " active" : "") +
+              '" data-show=' +
+              i +
+              '><img src="' +
+              (shows[i].image != "" && shows[i].image != null
+                ? shows[i].image
+                : twitterPicBaseUrl + shows[i].handle) +
+              '" alt="pfp" loading="lazy"/><div class="show-info"><p class="show-name">' +
+              shows[i].showname +
+              '</p><p class="show-date-time">' +
+              ("0" + start.getHours()).slice(-2) +
+              ":" +
+              ("0" + start.getMinutes()).slice(-2) +
+              " - " +
+              ("0" + end.getHours()).slice(-2) +
+              ":" +
+              ("0" + end.getMinutes()).slice(-2) +
+              "</p> </div></div>"
+          );
+        }
+      }
     }
-    $("#shows-during-day").append(
-      '<div class="quick-show-info ' +
-        (i == 0 ? " active" : "") +
-        '" data-show=' +
-        i +
-        '><img src="' +
-        (shows[i].image != "" && shows[i].image != null
-          ? shows[i].image
-          : twitterPicBaseUrl + shows[i].handle) +
-        '" alt="pfp" loading="lazy"/><div class="show-info"><p class="show-name">' +
-        shows[i].showname +
-        '</p><p class="show-date-time">' +
-        ("0" + start.getHours()).slice(-2) +
-        ":" +
-        ("0" + start.getMinutes()).slice(-2) +
-        " - " +
-        ("0" + end.getHours()).slice(-2) +
-        ":" +
-        ("0" + end.getMinutes()).slice(-2) +
-        "</p> </div></div>"
-    );
   }
+  let activeShow = $(".quick-show-info.active").data("show");
 
   $("#program-info").html(
     "<h2>" +
-      (shows[0].name != "" && shows[0].name != null
-        ? shows[0].name
-        : shows[0].showname) +
+      (shows[activeShow].name != "" && shows[activeShow].name != null
+        ? shows[activeShow].name
+        : shows[activeShow].showname) +
       "</h2><p>" +
-      (shows[0].description != "" && shows[0].description != null
-        ? nl2br(shows[0].description)
-        : nl2br(shows[0].showdescription)) +
+      (shows[activeShow].description != "" &&
+      shows[activeShow].description != null
+        ? nl2br(shows[activeShow].description)
+        : nl2br(shows[activeShow].showdescription)) +
       "</p>"
   );
 };
@@ -149,9 +186,9 @@ const setDegens = () => {
       ' <a href="https://twitter.com/' +
         degens[i].handle +
         '" target="_blank" rel="noreferrer" class="contributor"><div class="image-container"><img src="' +
-        (degens[0].image != "" && degens[0].image != null
-          ? degens[0].image
-          : twitterPicBaseUrl + degens[0].handle) +
+        (degens[i].image != "" && degens[i].image != null
+          ? degens[i].image
+          : twitterPicBaseUrl + degens[i].handle) +
         '" loading="lazy"/></div><p>' +
         degens[i].handle +
         "</p></a>"
@@ -171,7 +208,6 @@ const setIsLive = (isLive) => {
 
 getShowsForDay(true);
 getDegens();
-setIsLive(true);
 
 const isToday = (someDate) => {
   let today = new Date();
