@@ -85,7 +85,13 @@ const getShowsForDay = (first) => {
     baseUrl + "episode/get_episodes",
     { date: showInfoDate },
     function (data) {
-      setShowsForDay(data, first);
+      if (data.length > 0) {
+        setShowsForDay(data, first);
+      } else {
+        $("#shows-during-day").html(
+          "<p class='program-header'>There are no shows yet :(</p>"
+        );
+      }
     }
   );
 };
