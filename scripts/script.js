@@ -289,11 +289,18 @@ $(".right-arrow").on("click", function () {
 });
 
 $(document).on("click", ".quick-show-info", function () {
+  let activeShow = $(this).data("show");
+
   $("#program-info").html(
     "<h2>" +
-      shows[$(this).data("show")].name +
+      (shows[activeShow].name != "" && shows[activeShow].name != null
+        ? shows[activeShow].name
+        : shows[activeShow].showname) +
       "</h2><p>" +
-      nl2br(shows[$(this).data("show")].description) +
+      (shows[activeShow].description != "" &&
+      shows[activeShow].description != null
+        ? nl2br(shows[activeShow].description)
+        : nl2br(shows[activeShow].showdescription)) +
       "</p>"
   );
 
