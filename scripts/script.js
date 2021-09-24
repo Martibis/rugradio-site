@@ -108,8 +108,7 @@ const setShowsForDay = (data, first) => {
           $(".quick-show-info").removeClass("active");
           $("#shows-during-day").append(
             '<div class="quick-show-info active' +
-              (i == 0 ? " active" : "") +
-              '" data-show=' +
+              +' data-show="' +
               i +
               '><img src="' +
               (shows[i].image != "" && shows[i].image != null
@@ -152,9 +151,54 @@ const setShowsForDay = (data, first) => {
               "</p> </div></div>"
           );
         }
+      } else {
+        $("#shows-during-day").append(
+          '<div class="quick-show-info ' +
+            (i == 0 ? " active" : "") +
+            '" data-show=' +
+            i +
+            '><img src="' +
+            (shows[i].image != "" && shows[i].image != null
+              ? shows[i].image
+              : twitterPicBaseUrl + shows[i].handle) +
+            '" alt="pfp" loading="lazy"/><div class="show-info"><p class="show-name">' +
+            shows[i].showname +
+            '</p><p class="show-date-time">' +
+            ("0" + start.getHours()).slice(-2) +
+            ":" +
+            ("0" + start.getMinutes()).slice(-2) +
+            " - " +
+            ("0" + end.getHours()).slice(-2) +
+            ":" +
+            ("0" + end.getMinutes()).slice(-2) +
+            "</p> </div></div>"
+        );
       }
+    } else {
+      $("#shows-during-day").append(
+        '<div class="quick-show-info ' +
+          (i == 0 ? " active" : "") +
+          '" data-show=' +
+          i +
+          '><img src="' +
+          (shows[i].image != "" && shows[i].image != null
+            ? shows[i].image
+            : twitterPicBaseUrl + shows[i].handle) +
+          '" alt="pfp" loading="lazy"/><div class="show-info"><p class="show-name">' +
+          shows[i].showname +
+          '</p><p class="show-date-time">' +
+          ("0" + start.getHours()).slice(-2) +
+          ":" +
+          ("0" + start.getMinutes()).slice(-2) +
+          " - " +
+          ("0" + end.getHours()).slice(-2) +
+          ":" +
+          ("0" + end.getMinutes()).slice(-2) +
+          "</p> </div></div>"
+      );
     }
   }
+
   let activeShow = $(".quick-show-info.active").data("show");
 
   $("#program-info").html(
