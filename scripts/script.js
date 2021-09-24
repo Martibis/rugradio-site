@@ -112,7 +112,7 @@ const setShowsForDay = (data, first) => {
       console.log(end);
       if (!isLive) {
         if (utcDate > start && utcDate < end) {
-          setIsLive(true);
+          setIsLive(true, shows[i].handle);
           $(".quick-show-info").removeClass("active");
           $("#shows-during-day").append(
             '<div class="quick-show-info active' +
@@ -135,7 +135,7 @@ const setShowsForDay = (data, first) => {
               " UTC</p> </div></div>"
           );
         } else {
-          setIsLive(false);
+          setIsLive(false, "");
 
           $("#shows-during-day").append(
             '<div class="quick-show-info ' +
@@ -248,10 +248,12 @@ const setDegens = () => {
   }
 };
 
-const setIsLive = (isLive) => {
+const setIsLive = (isLive, handle) => {
   if (isLive) {
     $(".status").removeClass("inactive");
     $(".status").addClass("active");
+    $(".radio-div").attr("href", "https://twitter.com/" + handle);
+    $(".radio-div").attr("target", "_blank");
   } else {
     $(".status").removeClass("active");
     $(".status").addClass("inactive");
