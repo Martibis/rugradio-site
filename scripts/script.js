@@ -271,16 +271,18 @@ const setProgramDateText = () => {
 };
 
 $(".left-arrow").on("click", function () {
-  let minusADay = new Date();
-  minusADay.setDate(showInfoDate.getDate() - 1);
+  let minusADay = new Date(
+    moment(showInfoDate).subtract(1, "d").format("MMM DD, YYYY HH:MM")
+  );
   showInfoDate = minusADay;
   setProgramDateText();
   getShowsForDay(false);
 });
 
 $(".right-arrow").on("click", function () {
-  let plusADay = new Date();
-  plusADay.setDate(showInfoDate.getDate() + 1);
+  let plusADay = new Date(
+    moment(showInfoDate).add(1, "d").format("MMM DD, YYYY HH:MM")
+  );
   showInfoDate = plusADay;
   setProgramDateText();
   getShowsForDay(false);
