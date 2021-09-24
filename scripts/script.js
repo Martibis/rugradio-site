@@ -124,7 +124,7 @@ const setShowsForDay = (data, first) => {
               ("0" + end.getHours()).slice(-2) +
               ":" +
               ("0" + end.getMinutes()).slice(-2) +
-              "</p> </div></div>"
+              " GMT</p> </div></div>"
           );
         } else {
           setIsLive(false);
@@ -148,7 +148,7 @@ const setShowsForDay = (data, first) => {
               ("0" + end.getHours()).slice(-2) +
               ":" +
               ("0" + end.getMinutes()).slice(-2) +
-              "</p> </div></div>"
+              " GMT</p> </div></div>"
           );
         }
       } else {
@@ -171,7 +171,7 @@ const setShowsForDay = (data, first) => {
             ("0" + end.getHours()).slice(-2) +
             ":" +
             ("0" + end.getMinutes()).slice(-2) +
-            "</p> </div></div>"
+            " GMT</p> </div></div>"
         );
       }
     } else {
@@ -194,7 +194,7 @@ const setShowsForDay = (data, first) => {
           ("0" + end.getHours()).slice(-2) +
           ":" +
           ("0" + end.getMinutes()).slice(-2) +
-          "</p> </div></div>"
+          " GMT</p> </div></div>"
       );
     }
   }
