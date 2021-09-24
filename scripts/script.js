@@ -115,7 +115,7 @@ const setShowsForDay = (data, first) => {
           setIsLive(true, shows[i].handle);
           $(".quick-show-info").removeClass("active");
           $("#shows-during-day").append(
-            '<div class="quick-show-info active' +
+            '<div class="quick-show-info active"' +
               +' data-show="' +
               i +
               '><img src="' +
