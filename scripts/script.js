@@ -36,7 +36,9 @@ window.addEventListener("optimizedScroll", function () {
   scrollFunction();
 });
 
-var scroller = {};
+//THIS WAS TO SCROLL DEGENS ON VERTICAL SCROLL, BUT TOO LAGGY -> FEEL FREE TO FIX
+
+/* var scroller = {};
 scroller.e = document.getElementById("contributors");
 
 if (scroller.e.addEventListener) {
@@ -69,7 +71,7 @@ $("#contributors")
     return ev.originalEvent.deltaY > 0
       ? el[0].scrollWidth - el.scrollLeft() <= el.innerWidth()
       : el.scrollLeft() === 0;
-  });
+  }); */
 
 function nl2br(str, is_xhtml) {
   var breakTag =
